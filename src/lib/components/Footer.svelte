@@ -8,19 +8,26 @@
 	gsap.registerPlugin(ScrollTrigger);
 
 	onMount(() => {
-		var headerTL = gsap.timeline();
+		var footerTL = gsap.timeline({
+			scrollTrigger: {
+				start: -23
+			}
+		});
 
-		headerTL
-			.from('.header-link', {
+		footerTL
+			.from('.footer_links_bg', {
+				autoAlpha: 0
+			})
+			.from('.footer-link', {
 				duration: 0.8,
 				autoAlpha: 0,
-				y: 600,
+				y: 60,
 				stagger: 0.05,
 				ease: 'back.out(1)'
 			})
-			.from('.header-copy > *', {
+			.from('.footer-copy > *', {
 				autoAlpha: 0,
-				y: 1000,
+				y: 10,
 				stagger: 0.4,
 				ease: 'back.out(0.4)'
 			});
@@ -36,9 +43,11 @@
 
 <footer class="container max-w-5xl">
 	<nav class="flex flex-col justify-between items-center gap-4 py-4">
-		<ul class="flex items-center justify-center bg-slate-900 text-slate-100 w-full">
+		<ul
+			class="footer_links_bg invisible flex items-center justify-center bg-slate-900 text-slate-100 w-full"
+		>
 			{#each page_links as link}
-				<li class="header-link invisible">
+				<li class="footer-link invisible">
 					<a
 						href={link.href}
 						class={`inline-block p-2 font-semibold text-sm transition-all ${
@@ -50,7 +59,7 @@
 				</li>
 			{/each}
 		</ul>
-		<div class="header-copy group text-center">
+		<div class="footer-copy group text-center">
 			<div class="overflow-hidden invisible">
 				<div
 					class="text-sm font-bold group-hover:-translate-y-[20px] transition-all ease-in-out h-[20px]"
