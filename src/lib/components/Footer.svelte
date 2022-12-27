@@ -49,7 +49,7 @@
 			{#each page_links as link}
 				<li class="footer-link invisible">
 					<a
-						href={link.href}
+						href="#"
 						class={`inline-block p-2 font-semibold text-sm transition-all ${
 							$page.url.pathname == link.href ? 'text-red-500' : 'hover:text-red-700 hover:pb-4'
 						}`}
