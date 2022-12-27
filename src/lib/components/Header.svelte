@@ -38,7 +38,7 @@
 				<div
 					class="text-xl font-bold group-hover:-translate-y-[26px] transition-all ease-in-out h-[26px]"
 				>
-					<h1 class="text-red-500">Ibdul.</h1>
+					<h1 class="text-primary">Ibdul.</h1>
 					<h1>Ibrahim Abdulhameed.</h1>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 					<a
 						href={link.href}
 						class={`inline-block p-8 font-semibold text-sm transition-all ${
-							$page.url.pathname == link.href ? 'text-red-500' : 'hover:text-red-700 hover:pb-4'
+							$page.url.pathname == link.href ? 'text-primary' : 'hover:pb-4'
 						}`}
 					>
 						{link.title}

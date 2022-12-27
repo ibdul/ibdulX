@@ -51,7 +51,7 @@
 					<a
 						href={link.href}
 						class={`inline-block p-2 font-semibold text-sm transition-all ${
-							$page.url.pathname == link.href ? 'text-red-500' : 'hover:text-red-700 hover:pb-4'
+							$page.url.pathname == link.href ? 'text-primary' : 'hover:pb-4'
 						}`}
 					>
 						{link.title}
