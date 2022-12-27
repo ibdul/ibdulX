@@ -1,11 +1,8 @@
 <script>
 	import { page } from '$app/stores';
 	import { gsap } from 'gsap';
-	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 	import { onMount } from 'svelte';
-
-	gsap.registerPlugin(ScrollTrigger);
 
 	onMount(() => {
 		var headerTL = gsap.timeline();
