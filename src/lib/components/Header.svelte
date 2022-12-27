@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
@@ -52,9 +53,7 @@
 					<a
 						href={link.href}
 						class={`inline-block p-8 font-semibold text-sm transition-all ${
-							window.location.pathname == link.href
-								? 'text-red-500'
-								: 'hover:text-red-700 hover:pb-4'
+							$page.url.pathname == link.href ? 'text-red-500' : 'hover:text-red-700 hover:pb-4'
 						}`}
 					>
 						{link.title}
