@@ -18,8 +18,8 @@
 				ease: 'back.out(0.4)'
 			})
 			.from('.header-link', {
-				duration: 0.8,
 				autoAlpha: 0,
+				duration: 0.8,
 				y: -600,
 				stagger: 0.05,
 				ease: 'back.out(1)'
@@ -51,7 +51,7 @@
 			{#each page_links as link}
 				<li class="header-link invisible">
 					<a
-						href={link.href}
+						href="#"
 						class={`inline-block p-8 font-semibold text-sm transition-all ${
 							$page.url.pathname == link.href ? 'text-red-500' : 'hover:text-red-700 hover:pb-4'
 						}`}
