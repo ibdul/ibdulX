@@ -9,4 +9,7 @@
 	.text-primary {
 		@apply text-red-500;
 	}
+	.card {
+		@apply bg-white bg-opacity-40 backdrop-blur-md shadow-xl rounded-md p-6 flex flex-col justify-center;
+	}
 }

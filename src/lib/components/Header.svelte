@@ -24,10 +24,10 @@
 	});
 
 	const page_links = [
-		{ title: 'Home', href: '/' },
-		{ title: 'Resume', href: '/resume' },
-		{ title: 'Projects', href: '/projects' },
-		{ title: 'Contact Me', href: '/contact-me' }
+		{ title: 'Home', href: '/', text: 'about me' },
+		{ title: 'Resume', href: '/resume', text: 'my resume' },
+		{ title: 'Projects', href: '/projects', text: 'my projects' },
+		{ title: 'Contact Me', href: '/contact-me', text: 'lets talk' }
 	];
 </script>
 
@@ -42,7 +42,7 @@
 					<h1>Ibrahim Abdulhameed.</h1>
 				</div>
 			</div>
-			<p class="page-title text-xs lowercase font-semibold opacity-50 invisible">About Me</p>
+			<p class="page-title text-xs lowercase font-semibold opacity-50 invisible" />
 		</div>
 		<ul class="inline-flex items-center justify-center">
 			{#each page_links as link}
