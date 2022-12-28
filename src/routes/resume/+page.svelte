@@ -15,9 +15,10 @@
 		tl.from('.resume-page .card', {
 			autoAlpha: 0,
 			y: 200,
+			rotate: 20,
 			scale: 0,
 			stagger: 0.09,
-			ease: 'back.out(0.4)'
+			ease: 'back.out(1)'
 		});
 
 		// gsap.registerPlugin(ScrollTrigger);
@@ -83,10 +84,10 @@
 		}
 	];
 	const contact_infos = [
-		{ title: 'Phone', values: ['+234 903 900 6517'], link_prefix: 'tel' },
-		{ title: 'Email', values: ['i.ibrahim.abdulhameed@gmail.com'], link_prefix: 'mailto' },
-		{ title: 'Twitter', values: ['@iAmIbdul'], link_prefix: 'mailto' },
-		{ title: 'GitHub', values: ['@ibdul'], link_prefix: 'mailto' }
+		{ title: 'Phone', values: ['+234 903 900 6517'], link_prefix: 'tel:' },
+		{ title: 'Email', values: ['i.ibrahim.abdulhameed@gmail.com'], link_prefix: 'mailto:' },
+		{ title: 'Twitter', values: ['iAmIbdul'], link_prefix: 'https://twitter.com/' },
+		{ title: 'GitHub', values: ['ibdul'], link_prefix: 'https://github.com/' }
 	];
 	const jobs = [
 		{
@@ -233,7 +234,11 @@
 						<h3 class="font-semibold">{contact_info.title}</h3>
 						<ul class="ml-8 list-disc text-sm">
 							{#each contact_info.values as contact_info_value}
-								<li>{contact_info_value}</li>
+								<li>
+									<a href={`${contact_info.link_prefix}${contact_info_value}`}
+										>{contact_info_value}</a
+									>
+								</li>
 							{/each}
 						</ul>
 					</div>
