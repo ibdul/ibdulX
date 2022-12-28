@@ -1,20 +1,43 @@
 <script>
 	import { gsap } from 'gsap';
-	import Rellax from 'rellax';
+	// import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+	// import Rellax from 'rellax';
 
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		var LAX = new Rellax('.rellax');
+		// var LAX = new Rellax('.rellax');
 
-		var tl = gsap.timeline();
+		var tl = gsap.timeline({
+			delay: 2
+		});
 
 		tl.from('.resume-page .card', {
 			autoAlpha: 0,
 			y: 200,
+			scale: 0,
 			stagger: 0.09,
 			ease: 'back.out(0.4)'
 		});
+
+		// gsap.registerPlugin(ScrollTrigger);
+		// let cards = gsap.utils.toArray('.resume-page .card');
+
+		// cards.forEach((card, index) => {
+		// 	let resume_tl = gsap.timeline({
+		// 		duration: 0.5,
+		// 		delay: index / 20,
+		// 		start: '-200 +200',
+		// 		scrollTrigger: {
+		// 			trigger: card
+		// 		}
+		// 	});
+		// 	resume_tl.from(card, {
+		// 		autoAlpha: 0,
+		// 		y: 200,
+		// 		ease: 'back.out(0.4)'
+		// 	});
+		// });
 	});
 
 	const skill_sets = [
@@ -125,10 +148,12 @@
 	<title>Resume | Ibrahim Abdulhameed</title>
 </svelte:head>
 
-<section class="container max-w-5xl space-y-8 resume-page">
-	<!-- <h1 class="text-2xl font-semibold">My Resume</h1> -->
-	<div class="grid grid-cols-3 gap-4">
-		<div class="w-full invisible card space-y-4">
+<section class="container max-w-5xl print:space-y-8 resume-page">
+	<h1 class="text-[0px] font-semibold invisible print:visible print:text-2xl">
+		Ibrahim Abdulhameed.
+	</h1>
+	<div class="grid grid-cols-3 gap-4 print:gap-0">
+		<div class="w-full card invisible space-y-4">
 			<h2 class="text-sm font-semibold">Basic Information</h2>
 			<p class="leading-relaxed">
 				I am <span class="text-primary font-semibold">Ibrahim Abdulhameed</span>, a full stack web
@@ -138,7 +163,7 @@
 				<span class="text-primary font-semibold">mastery.</span>
 			</p>
 		</div>
-		<div class="w-full invisible card space-y-4">
+		<div class="w-full card invisible space-y-4">
 			<h2 class="text-sm font-semibold">Education</h2>
 			<div class="space-y-2">
 				<p class="font-bold">
@@ -151,7 +176,7 @@
 			</div>
 		</div>
 		<div class="gap-4 row-span-3 flex flex-col">
-			<div class="w-full invisible card space-y-4">
+			<div class="w-full card invisible space-y-4">
 				<h2 class="text-sm font-semibold">Skills</h2>
 				{#each skill_sets as skill_set}
 					<div class="space-y-2">
@@ -164,7 +189,7 @@
 					</div>
 				{/each}
 			</div>
-			<div class="w-full invisible card space-y-4">
+			<div class="w-full card invisible space-y-4">
 				<h2 class="text-sm font-semibold">Preference</h2>
 				<p class="leading-relaxed">
 					I love to work in friendly, healthy environments where I can get to learn, teach and
@@ -174,9 +199,9 @@
 					as well.
 				</p>
 			</div>
-			<div class="w-full flex-1 invisible card space-y-4" />
+			<div class="w-full flex-1 card invisible space-y-4" />
 		</div>
-		<div class="w-full invisible card col-span-2 space-y-4 text-justify">
+		<div class="w-full card invisible col-span-2 space-y-4 text-justify">
 			<h2 class="text-sm font-semibold">Work History</h2>
 			<p>
 				Over the years, I have be fortunate enough to work on a few projects many of which were
@@ -201,7 +226,7 @@
 			</div>
 		</div>
 		<div class="row-span-3 gap-4 flex flex-col">
-			<div class="w-full invisible card space-y-4">
+			<div class="w-full card invisible space-y-4">
 				<h2 class="text-sm font-semibold">Contact Info and Links</h2>
 				{#each contact_infos as contact_info}
 					<div class="space-y-2">
@@ -214,9 +239,9 @@
 					</div>
 				{/each}
 			</div>
-			<div class="w-full flex-1 invisible card space-y-4" />
+			<div class="w-full flex-1 card invisible space-y-4" />
 		</div>
-		<div class="w-full invisible card space-y-2">
+		<div class="w-full card invisible space-y-2">
 			<h2 class="text-sm font-semibold">Interests</h2>
 			<ul class="ml-8 list-disc text-sm">
 				{#each interests as interest}
@@ -224,7 +249,7 @@
 				{/each}
 			</ul>
 		</div>
-		<div class="w-full invisible card space-y-2">
+		<div class="w-full card invisible space-y-2">
 			<h2 class="text-sm font-semibold">Values</h2>
 			<ul class="ml-8 list-disc text-sm">
 				{#each values as value}
@@ -233,7 +258,7 @@
 			</ul>
 		</div>
 		<div class="flex flex-col gap-4">
-			<div class="w-full invisible card space-y-2">
+			<div class="w-full card invisible space-y-2">
 				<h2 class="text-sm font-semibold">Certifications</h2>
 				<ul class="ml-8 list-disc text-sm">
 					{#each certifications as certification}
@@ -241,7 +266,7 @@
 					{/each}
 				</ul>
 			</div>
-			<div class="w-full invisible card space-y-2">
+			<div class="w-full card invisible space-y-2">
 				<h2 class="text-sm font-semibold">Languages</h2>
 				<ul class="ml-8 list-disc text-sm">
 					{#each languages as language}
@@ -251,9 +276,15 @@
 			</div>
 		</div>
 		<div
-			class="w-full invisible col-span-2 card bg-slate-900 bg-opacity-80 backdrop-blur-md shadow-xl rounded-md p-6 space-y-2"
+			class="w-full col-span-2 card invisible !bg-slate-900 bg-opacity-80 text-slate-100 backdrop-blur-md shadow-xl rounded-md p-6 space-y-2 text-center"
 		>
-			<h2 class="text-xl text-primary font-semibold text-center">Thank you for viewing.</h2>
+			<h2 class="text-xl text-primary font-semibold">Thank you for your time.</h2>
+			<p class="text-sm ">Looking forward to talking to you.</p>
+			<div class="hover:opacity-60 print:max-h-0 print:invisible">
+				<button class="text-sm border-b border-red-500 inline" on:click={() => window.print()}
+					>print my resume</button
+				>
+			</div>
 		</div>
 	</div>
 </section>
