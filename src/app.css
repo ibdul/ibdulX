@@ -6,6 +6,9 @@
 	.text-defaults {
 		@apply text-slate-800 dark:text-[#B5A4AC] transition-all duration-300;
 	}
+	.svg-defaults {
+		@apply fill-slate-800 dark:fill-[#B5A4AC] transition-all duration-300;
+	}
 	.text-primary {
 		@apply text-red-500 dark:text-[#fff] transition-all duration-300;
 	}
