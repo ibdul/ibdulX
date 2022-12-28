@@ -42,7 +42,9 @@
 					<h1>Ibrahim Abdulhameed.</h1>
 				</div>
 			</div>
-			<p class="page-title text-xs lowercase font-semibold opacity-50 invisible" />
+			<p class="page-title text-xs lowercase font-semibold opacity-50 invisible">
+				{page_links.find((item) => item.href == $page.url.pathname)?.text}
+			</p>
 		</div>
 		<ul class="inline-flex items-center justify-center">
 			{#each page_links as link}
