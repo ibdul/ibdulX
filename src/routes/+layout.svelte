@@ -6,10 +6,20 @@
 
 	import PageTransition from '$lib/components/PageTransition.svelte';
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 
-	let dark_mode = true;
+	let dark_mode = false;
+
+	onMount(() => {
+		dark_mode = localStorage.getItem('dark_mode') == 'true';
+	});
+
+	function toggleDarkMode() {
+		dark_mode = !dark_mode;
+		localStorage.setItem('dark_mode', String(dark_mode));
+	}
 </script>
 
 <div class:dark={dark_mode}>
@@ -23,6 +33,7 @@
 					<slot />
 				</div>
 				<Footer />
+				<p on:click={toggleDarkMode}>toggle dark mode</p>
 			</main>
 		</PageTransition>
 	</div>
