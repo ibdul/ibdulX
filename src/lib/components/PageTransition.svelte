@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { blur, crossfade, fade, fly, slide, scale } from 'svelte/transition';
+	import { blur } from 'svelte/transition';
 
 	export let key: string;
 	export let duration = 300;
