@@ -4,6 +4,7 @@
 	// import Rellax from 'rellax';
 
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	onMount(() => {
 		// var LAX = new Rellax('.rellax');
@@ -157,6 +158,194 @@
 		'Jobberman Soft Skills course'
 	];
 	const languages = ['English', 'Hausa', 'Yoruba', 'Patois'];
+	const quotes = [
+		{
+			id: 0,
+			text: 'The only place success comes before work is in the dictionary.',
+			author: 'Vince Lambardi'
+		},
+		{
+			id: 1,
+			text: "Even if you're on the right track, you would get run over if you just sit there.",
+			author: 'Will Rogers'
+		},
+		{
+			id: 2,
+			text: 'Be like a postage stamp, stick to a thing till you get there.',
+			author: 'Josh Billings'
+		},
+		{
+			id: 3,
+			text: 'Love is a dividend of sweat, the more you sweat, the luckier you get.',
+			author: 'Ray Kroc'
+		},
+		{
+			id: 4,
+			text: 'It is better to have one person working with you than three people working for you.',
+			author: 'Dwight D. Eisenhower'
+		},
+		{
+			id: 5,
+			text: 'People who never do any more than they get paid for, never get paid for any more than they do.',
+			author: 'Elbert Hubbard'
+		},
+		{
+			id: 6,
+			text: 'If hard work is the key to success, most people would rather pick the lock.',
+			author: 'Claude McDonald'
+		},
+		{
+			id: 7,
+			text: "The easiest job in the world is to be coroner. Surgery on dead people. What's the worst thing that could happen? If everything went wrong, maybe you'd get a pulse.",
+			author: 'Dennis Miller'
+		},
+		{
+			id: 8,
+			text: "Everyday I get up and look through the Forbes list of the richest people in America. If I'm not there, I go to work.",
+			author: 'Robert Orben'
+		},
+		{
+			id: 9,
+			text: 'Delegate your work. Stop spending dollar time on penny jobs.',
+			author: 'Mary Kay Ash'
+		},
+		{
+			id: 10,
+			text: 'The closest to perfection a person ever comes is when he fills out a job application form.',
+			author: 'Stanley J. Randal'
+		},
+		{
+			id: 11,
+			text: 'Find a job you like and you add five days to every week.',
+			author: 'H. Jackson Brown. Jr'
+		},
+		{
+			id: 12,
+			text: 'Sometimes I spend the whole meeting wondering how they got the big meeting table throught the door.',
+			author: 'Anonymous'
+		},
+		{
+			id: 13,
+			text: 'An expert is a man who has made all the mistakes which can be made in a very narrow field.',
+			author: 'Niels Bohr'
+		},
+		{
+			id: 14,
+			text: "It's just a job. Grass grows, birds fly, waves pound the sand, I beat people up.",
+			author: 'Muhammad Ali'
+		},
+		{
+			id: 15,
+			text: 'My boss told me to start evey presentation with a joke. The first slide was my paycheck.',
+			author: 'Anonymous'
+		},
+		{
+			id: 16,
+			text: "A lot of fellows nowadays have a B.A., M.D., or Ph.D. Unfortunately, they don't have a J.O.B.",
+			author: 'Fats Domino'
+		},
+		{
+			id: 17,
+			text: "I've got all the money I'll ever need if I die by four o'clock.",
+			author: 'Henry Youngman'
+		},
+		{
+			id: 18,
+			text: 'When I was 16 I worked in a pet store, and they fired me because ... they had three snakes, and one day I braided them.',
+			author: 'Steven Alexander Wright'
+		},
+		{
+			id: 19,
+			text: "I use to work at McDonald's making minimum wage. You know what that means? You know what your boss was trying to say? It's like, 'Hey if I could pay you less, I would. But it is against the law'.",
+			author: 'Chris Rock'
+		},
+		{
+			id: 20,
+			text: "Where people aren't having fun, they seldom produce good work.",
+			author: 'David Ogilvy'
+		},
+		{
+			id: 21,
+			text: "If you think you're too small to be effective, you have never been in the dark with a mosquito.",
+			author: 'Betty Reese'
+		},
+		{
+			id: 22,
+			text: 'Oppurtunity is missed by most people because it is dressed in overalls and looks like work.',
+			author: 'Thomas Edison'
+		},
+		{
+			id: 23,
+			text: "Leaders who don't listen will eventually be surrounded by people who have nothing to say.",
+			author: 'Andy Stanley'
+		},
+		{
+			id: 24,
+			text: "If a man smiles all the time, he probably sells something that doesn't work.",
+			author: 'Woody Allen'
+		},
+		{
+			id: 25,
+			text: 'An expert is a man who tells you a simple thing in a confused way in such a fashion as to make you think the confusion is your fault.',
+			author: 'William Castle'
+		},
+		{
+			id: 26,
+			text: 'A diamond is merely a lump of coal that did well under pressure.',
+			author: 'Henry Kissenger'
+		},
+		{
+			id: 27,
+			text: "If at first you don't succeed, then skydiving definitely isn't for you.",
+			author: 'Steve Wright'
+		},
+		{
+			id: 28,
+			text: "Hard work spotlights the character of people. Some turn up their sleeves, some turn up their noses, and some don't turn up at all.",
+			author: 'Sam Ewing'
+		},
+		{
+			id: 29,
+			text: "I don't want any yes-men around me. I want everyone to tell me the truth even if it costs him his job.",
+			author: 'Samuel Goldwyn'
+		},
+		{
+			id: 30,
+			text: "Learn from the mistakes of others. You can't live long enough to make them all yourself.",
+			author: 'Anonymous'
+		},
+		{
+			id: 31,
+			text: "Whenever you are asked if you can do a job, tell 'em 'certailnly, I can!' then get busy and find out how to do it.",
+			author: 'Theodore Roosevelte'
+		},
+		{
+			id: 32,
+			text: 'The fellow who never makes a mistake takes his orders from one who does.',
+			author: 'Anonymous'
+		},
+		{
+			id: 33,
+			text: 'God put me on this Earth to accomplish a certain number of things. Right now, I am so far behind I will never die.',
+			author: 'Bill Waterson'
+		}
+	];
+	let seen_quotes: { [key: number]: boolean } = {};
+
+	let quote = getQuote();
+
+	function getQuote() {
+		if (Object.keys(seen_quotes).length == quotes.length) {
+			seen_quotes = {};
+		}
+		let quote = quotes[Math.floor(quotes.length * Math.random())];
+
+		while (!quote || seen_quotes[quote.id]) {
+			quote = quotes[Math.floor(quotes.length * Math.random())];
+		}
+		seen_quotes[quote.id] = true;
+		return quote;
+	}
 </script>
 
 <svelte:head>
@@ -214,11 +403,22 @@
 					as well.
 				</p>
 			</div>
-			<div class="grid grid-cols-2 grid-rows-2 gap-4 h-full">
-				<div class="w-full flex-1 card invisible space-y-4" />
-				<div class="w-full flex-1 card invisible space-y-4" />
-				<div class="w-full flex-1 card invisible space-y-4" />
-				<div class="w-full flex-1 card invisible space-y-4" />
+			<div class="w-full flex-1 card invisible space-y-4">
+				<h2 class="text-sm font-semibold">Quote</h2>
+				{#key quote}
+					<div in:fade class="space-y-1">
+						<p class="text-sm">
+							{quote.text}
+						</p>
+						<p class="italic text-right text-xs text-opacity-25">
+							- {quote.author}.
+						</p>
+					</div>
+				{/key}
+				<button
+					class="inline-flex justify-center items-center w-6 h-6 p-2 rounded-full hover:shadow-md"
+					on:click={() => (quote = getQuote())}>&#128472;</button
+				>
 			</div>
 		</div>
 		<div class="w-full card invisible col-span-2 space-y-4 text-justify">
