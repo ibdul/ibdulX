@@ -15,7 +15,7 @@
 
 <div class:dark={$dark_mode}>
 	<div
-		class="bg-gradient-to-br from from-slate-400/20 via-slate-200/20 dark:from-[#16131F] dark:to-[#100E18] transition-all duration-300 ease-in-out"
+		class="bg-gradient-to-br from from-slate-400/20 via-slate-200/20 dark:from-[#16131F] dark:to-[#100E18] transition-all duration-300 ease-in-out overflow-clip"
 	>
 		<PageTransition key={data.pathname} duration={500}>
 			<main class="min-h-screen flex flex-col justify-between text-defaults svg-defaults">
