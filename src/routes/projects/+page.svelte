@@ -64,13 +64,13 @@
 						<div class="rotate-45 w-[120px] h-[120px] mt-80 dark:bg-white/10 bg-slate-800/20" />
 					</div>
 
-					<div class="rellax" data-rellax-speed="4">
+					<div class="rellax" data-rellax-speed="6">
 						<div class="rotate-45 w-[120px] h-[120px] mt-40 dark:bg-white/5 bg-slate-800/10" />
 					</div>
 					<div class="rellax" data-rellax-speed="1">
 						<div class="rotate-45 w-[120px] h-[120px] mt-90 dark:bg-white/20 bg-slate-800/5" />
 					</div>
-					<div class="rellax" data-rellax-speed="3">
+					<div class="rellax" data-rellax-speed="8">
 						<div class="rotate-45 w-[120px] h-[120px] mt-90 dark:bg-white/20 bg-slate-800/5" />
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 				<div class="grid grid-cols-3 gap-20">
 					<div
 						class="w-12 h-12 bg-slate-900/10 dark:bg-white/10 blur-md rounded-full rellax"
-						data-rellax-speed={2}
+						data-rellax-speed={3}
 					/>
 					<div
 						class="w-6 h-6 bg-slate-900/20 dark:bg-white/5 blur-md rounded-full rellax"
@@ -135,7 +135,7 @@
 					/>
 					<div
 						class="w-4 h-4 bg-slate-900/30 dark:bg-white/10 blur-md rounded-full rellax"
-						data-rellax-speed={4}
+						data-rellax-speed={6}
 					/>
 				</div>
 			</div>
