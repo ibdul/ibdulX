@@ -256,7 +256,7 @@
 		},
 		{
 			id: 19,
-			text: "I use to work at McDonald's making minimum wage. You know what that means? You know what your boss was trying to say? It's like, 'Hey if I could pay you less, I would. But it is against the law'.",
+			text: "I used to work at McDonald's making minimum wage. You know what that means? You know what your boss was trying to say? It's like, 'Hey if I could pay you less, I would. But it is against the law'.",
 			author: 'Chris Rock'
 		},
 		{
@@ -407,7 +407,7 @@
 				<h2 class="text-sm font-semibold">Quote</h2>
 				{#key quote}
 					<div in:fade class="space-y-1">
-						<p class="text-sm">
+						<p class="text-sm text-justify">
 							{quote.text}
 						</p>
 						<p class="italic text-right text-xs text-opacity-25">
