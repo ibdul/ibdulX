@@ -41,7 +41,7 @@
 <section class="max-w-3xl container text-center space-y-8 projects_page">
 	{#each [1, 2, 3, 4] as _}
 		<div class="space-y-4 relative border-primary border-b-2 !border-opacity-10">
-			<div class="z-10">
+			<div class="z-2">
 				<div class="grid grid-cols-2 gap-4 items-start">
 					<div class="space-y-4">
 						<div class="w-full card invisible min-h-[400px]" />
@@ -123,13 +123,7 @@
 					de et du l'horizon marais bleu. Blés taché monté et.
 				</p>
 			</div>
-			<div
-				class="hidden absolute inset-x bottom-0 bg-gradient-to-b from-transparent via-white to-white shadow-md w-full -mt-2 p-8"
-			>
-				<p class="text-center font-semibold">expand</p>
-			</div>
-
-			<div class="absolute w-full z-30">
+			<div class="absolute w-full z-3">
 				<div class="grid grid-cols-3 gap-20">
 					<div
 						class="w-12 h-12 bg-slate-900/10 dark:bg-white/10 blur-md rounded-full rellax"

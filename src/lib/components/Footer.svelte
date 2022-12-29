@@ -43,7 +43,7 @@
 	];
 </script>
 
-<footer class="container site_footer max-w-5xl">
+<footer class="container site_footer max-w-5xl z-5 ">
 	<nav class="flex flex-col justify-between items-center gap-4 py-4">
 		<div class="footer_links_bg invisible w-full">
 			<ul
