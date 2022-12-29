@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { gsap } from 'gsap';
 	// import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	// import Rellax from 'rellax';
@@ -92,6 +92,9 @@
 	const jobs = [
 		{
 			company: 'Team-X',
+			start_date: new Date('12/1/2018'),
+			is_still_here: true,
+			end_date: new Date(),
 			description: `A dynamic team whose main purpose is to collaborate on building solutions to clients' problems. The team brainstorms on the roadmap to be taken to solve the problem, everyone gets to explore and learn in the process.`,
 			projects: [
 				{
@@ -114,6 +117,9 @@
 		},
 		{
 			company: 'Freelance',
+			start_date: new Date('10/1/2019'),
+			is_still_here: true,
+			end_date: new Date(),
 			description: `As mentioned before, the bulk of my works have been freelance based. Most times I had to work remotely with my own tools and many times the clients do not care about the technology to be used, I was left to choose with respect to my knowledge and the project's requirements.`,
 			projects: [
 				{
@@ -211,7 +217,14 @@
 			<div class="space-y-6">
 				{#each jobs as job}
 					<div class="space-y-2">
-						<h3 class="font-semibold text-primary">{job.company}</h3>
+						<div class="flex items-center justify-between">
+							<h3 class="font-semibold text-primary">{job.company}</h3>
+							<p class="italic text-opacity-20 text-sm text-right">
+								{job.start_date.getMonth() + 1}/{job.start_date.getFullYear()} - {job.is_still_here
+									? 'present'
+									: `${job.end_date.getMonth() + 1}/${job.end_date.getFullYear()}`}
+							</p>
+						</div>
 						<p>{job.description}</p>
 						<p>Some projects:</p>
 						<ul class="ml-8 list-disc space-y-1">
