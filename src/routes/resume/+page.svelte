@@ -286,7 +286,7 @@
 			<h2 class="text-xl text-primary font-semibold">Thank you for your time.</h2>
 			<p class="text-sm ">Looking forward to talking to you.</p>
 			<div class="hover:opacity-60 print:max-h-0 print:invisible">
-				<button class="text-sm border-b border-red-500 inline" on:click={() => window.print()}
+				<button class="text-sm border-b border-primary inline" on:click={() => window.print()}
 					>print my resume</button
 				>
 			</div>

@@ -12,6 +12,9 @@
 	.text-primary {
 		@apply text-red-500 dark:text-[#fff] transition-all duration-300;
 	}
+	.border-primary {
+		@apply border-red-500 dark:border-[#fff] transition-all duration-300;
+	}
 	.card {
 		@apply bg-white dark:bg-gradient-to-br from-[#272031] to-[#1F1926] bg-opacity-40 backdrop-blur-md shadow-xl rounded-md p-6 flex flex-col justify-center;
 	}
