@@ -27,9 +27,9 @@
 
 	const page_links = [
 		{ title: 'Home', href: '/', text: 'about me' },
-		{ title: 'Resume', href: '/resume', text: 'my resume' },
-		{ title: 'Projects', href: '/projects', text: 'my projects' },
-		{ title: 'Contact Me', href: '/contact-me', text: 'lets talk' }
+		{ title: 'Resume', href: '/resume/', text: 'my resume' },
+		{ title: 'Projects', href: '/projects/', text: 'my projects' },
+		{ title: 'Contact Me', href: '/contact-me/', text: 'lets talk' }
 	];
 
 	onMount(() => {

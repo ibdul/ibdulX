@@ -11,7 +11,7 @@
 		var footerTL = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.site_footer',
-				start: 'top bottom',
+				start: '-40 bottom',
 				toggleActions: 'play complete resume restart'
 			}
 		});
@@ -37,9 +37,9 @@
 
 	const page_links = [
 		{ title: 'Home', href: '/' },
-		{ title: 'Resume', href: '/resume' },
-		{ title: 'Projects', href: '/projects' },
-		{ title: 'Contact Me', href: '/contact-me' }
+		{ title: 'Resume', href: '/resume/' },
+		{ title: 'Projects', href: '/projects/' },
+		{ title: 'Contact Me', href: '/contact-me/' }
 	];
 </script>
 
