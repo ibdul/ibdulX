@@ -20,7 +20,7 @@
 				ease: 'back.out(0.8)',
 				scrollTrigger: {
 					trigger: card,
-					toggleActions: 'play complete none restart'
+					toggleActions: 'play pause resume reset'
 				}
 			});
 			decoration_tl.from(card, {
