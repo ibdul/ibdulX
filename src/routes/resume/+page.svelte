@@ -133,7 +133,15 @@
 			]
 		}
 	];
-	const interests = ['Learning', 'Arts', 'Gaming', 'Movies', 'Travelling', 'Boxing'];
+	const hobbies = ['Learning', 'Arts', 'Gaming', 'Movies', 'Travelling', 'Boxing'];
+	const interests = [
+		'3D web',
+		'Web3 and DAPS',
+		'Facinating design',
+		'Innovative ideas',
+		'Space',
+		'Systems design'
+	];
 	const values = [
 		'Honesty',
 		'Progress',
@@ -206,7 +214,12 @@
 					as well.
 				</p>
 			</div>
-			<div class="w-full flex-1 card invisible space-y-4" />
+			<div class="grid grid-cols-2 grid-rows-2 gap-4 h-full">
+				<div class="w-full flex-1 card invisible space-y-4" />
+				<div class="w-full flex-1 card invisible space-y-4" />
+				<div class="w-full flex-1 card invisible space-y-4" />
+				<div class="w-full flex-1 card invisible space-y-4" />
+			</div>
 		</div>
 		<div class="w-full card invisible col-span-2 space-y-4 text-justify">
 			<h2 class="text-sm font-semibold">Work History</h2>
@@ -257,7 +270,14 @@
 					</div>
 				{/each}
 			</div>
-			<div class="w-full flex-1 card invisible space-y-4" />
+			<div class="w-full flex-1 card invisible space-y-4">
+				<h2 class="text-sm font-semibold">Hobbies</h2>
+				<ul class="ml-8 list-disc text-sm">
+					{#each hobbies as hobby}
+						<li>{hobby}</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 		<div class="w-full card invisible space-y-2">
 			<h2 class="text-sm font-semibold">Interests</h2>
