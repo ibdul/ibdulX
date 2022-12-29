@@ -1,24 +1,83 @@
+<script lang="ts">
+	import Rellax from 'rellax';
+
+	import gsap from 'gsap';
+	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		const RELLAX = new Rellax('.rellax');
+		gsap.registerPlugin(ScrollTrigger);
+
+		const cards: HTMLHtmlElement[] = gsap.utils.toArray('.projects_page .card');
+
+		cards.forEach((card, index) => {
+			let decoration_tl = gsap.timeline({
+				duration: 0.5,
+				delay: index / 20,
+				start: '-200 +200',
+				ease: 'back.out(0.8)',
+				scrollTrigger: {
+					trigger: card,
+					toggleActions: 'play complete none restart'
+				}
+			});
+			decoration_tl.from(card, {
+				x: gsap.utils.random([-120, -220, 230, 130]),
+				y: gsap.utils.random([-120, -220, 230, 130]),
+				rotate: gsap.utils.random([-12, -22, 23, 13]),
+				autoAlpha: 0
+			});
+		});
+		const projects_tl = gsap.timeline({ scrollTrigger: {} });
+	});
+</script>
+
 <svelte:head>
 	<title>Projects | Ibrahim Abdulhameed</title>
 </svelte:head>
 
-<section class="max-w-3xl container text-center space-y-8">
+<section class="max-w-3xl container text-center space-y-8 projects_page">
 	{#each [1, 2, 3, 4] as _}
-		<div class="space-y-4 overflow-clip relative border-primary border-b-2 !border-opacity-10">
-			<div class="space-y-4 ">
-				<h2 class="font-semibold">Hello</h2>
+		<div class="space-y-4 relative border-primary border-b-2 !border-opacity-10">
+			<div class="z-10">
 				<div class="grid grid-cols-2 gap-4 items-start">
 					<div class="space-y-4">
-						<div class="w-full card min-h-[400px]" />
-						<div class="w-full card h-[300px]" />
+						<div class="w-full card invisible min-h-[400px]" />
+						<div class="w-full card invisible h-[300px]" />
 					</div>
 					<div class="space-y-4">
-						<div class="w-full card h-[300px]" />
-						<div class="w-full card min-h-[400px]" />
+						<div class="w-full card invisible h-[300px]" />
+						<div class="w-full card invisible min-h-[400px]" />
 					</div>
 				</div>
 			</div>
-			<div class="space-y-4 p-8 backdrop-blur-sm">
+
+			<div class="absolute -z-1 w-[90%] mt-40">
+				<div class="grid grid-cols-4">
+					<div class="rellax" data-rellax-speed="4">
+						<div class="rotate-45 w-[120px] h-[120px] dark:bg-white/5 bg-slate-800/30" />
+					</div>
+
+					<div class="rellax" data-rellax-speed="2">
+						<div class="rotate-45 w-[120px] h-[120px] mt-80 dark:bg-white/10 bg-slate-800/20" />
+					</div>
+
+					<div class="rellax" data-rellax-speed="4">
+						<div class="rotate-45 w-[120px] h-[120px] mt-40 dark:bg-white/5 bg-slate-800/10" />
+					</div>
+					<div class="rellax" data-rellax-speed="1">
+						<div class="rotate-45 w-[120px] h-[120px] mt-90 dark:bg-white/20 bg-slate-800/5" />
+					</div>
+					<div class="rellax" data-rellax-speed="3">
+						<div class="rotate-45 w-[120px] h-[120px] mt-90 dark:bg-white/20 bg-slate-800/5" />
+					</div>
+				</div>
+			</div>
+
+			<div class="space-y-4 p-8">
+				<h2 class="font-semibold">Hello</h2>
 				<p>
 					Du je des et bas verte les, et les d'enfants l'homme ces les ne les l'âcre, immobilités
 					vins des et qui aux - peaux. Jaune plus d'or plus plus suis soleil les m'ont. La aux
@@ -68,6 +127,23 @@
 				class="hidden absolute inset-x bottom-0 bg-gradient-to-b from-transparent via-white to-white shadow-md w-full -mt-2 p-8"
 			>
 				<p class="text-center font-semibold">expand</p>
+			</div>
+
+			<div class="absolute w-full z-30">
+				<div class="grid grid-cols-3 gap-20">
+					<div
+						class="w-12 h-12 bg-slate-900/10 dark:bg-white/10 blur-md rounded-full rellax"
+						data-rellax-speed={2}
+					/>
+					<div
+						class="w-6 h-6 bg-slate-900/20 dark:bg-white/5 blur-md rounded-full rellax"
+						data-rellax-speed={1}
+					/>
+					<div
+						class="w-4 h-4 bg-slate-900/30 dark:bg-white/10 blur-md rounded-full rellax"
+						data-rellax-speed={4}
+					/>
+				</div>
 			</div>
 		</div>
 	{/each}
