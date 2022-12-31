@@ -21,4 +21,7 @@
 	.card-inverted {
 		@apply bg-gradient-to-br from-[#272031]/10 to-[#1F1926]/10 dark:from-slate-400/10 dark:via-slate-200/10 backdrop-blur-md shadow-xl rounded-md p-6 flex flex-col justify-center;
 	}
+	.link {
+		@apply border-primary border-b pb-1 hover:pb-0 text-sm lowercase;
+	}
 }
