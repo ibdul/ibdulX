@@ -24,8 +24,10 @@ export const load: LayoutLoad = ({url})=>{
             'Web3 and DAPS',
             'Facinating design',
             'Innovative ideas',
+            "Ego crushing challenges :)",
             'Space',
-            'Systems design'
+            'Systems design',
+            "..."
         ],
         jobs:[
             {
@@ -329,6 +331,7 @@ export const load: LayoutLoad = ({url})=>{
             }
         ],
         values:[
+            "Honor",
             'Honesty',
             'Progress',
             'Patience',
