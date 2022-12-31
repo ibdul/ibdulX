@@ -8,8 +8,6 @@
 	export let data: PageData;
 
 	onMount(() => {
-		// var LAX = new Rellax('.rellax');
-
 		var tl = gsap.timeline({
 			delay: 2
 		});
@@ -22,25 +20,6 @@
 			stagger: 0.09,
 			ease: 'back.out(1)'
 		});
-
-		// gsap.registerPlugin(ScrollTrigger);
-		// let cards = gsap.utils.toArray('.resume-page .card');
-
-		// cards.forEach((card, index) => {
-		// 	let resume_tl = gsap.timeline({
-		// 		duration: 0.5,
-		// 		delay: index / 20,
-		// 		start: '-200 +200',
-		// 		scrollTrigger: {
-		// 			trigger: card
-		// 		}
-		// 	});
-		// 	resume_tl.from(card, {
-		// 		autoAlpha: 0,
-		// 		y: 200,
-		// 		ease: 'back.out(0.4)'
-		// 	});
-		// });
 	});
 
 	const skill_sets = data.skill_sets;
@@ -241,8 +220,8 @@
 		>
 			<h2 class="text-xl text-primary font-semibold">Thank you for your time.</h2>
 			<p class="text-sm ">Looking forward to talking to you.</p>
-			<div class="hover:opacity-60 print:max-h-0 print:invisible">
-				<button class="text-sm border-b border-primary inline" on:click={() => window.print()}
+			<div class="print:max-h-0 print:invisible">
+				<button class="text-sm border-b link" on:click={() => window.print()}
 					>print my resume</button
 				>
 			</div>
