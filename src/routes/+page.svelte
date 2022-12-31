@@ -206,12 +206,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="rellax" data-rellax-speed={4}>
-			<!-- <img
+		<div class="rellax" data-rellax-speed={6}>
+			<img
 				src="/images/bitmoji/perseverance.png"
 				alt="pushing a boulder up a hill"
-				class="shadow-md w-[20%] mx-auto opacity-10 hover:opacity-100"
-			/> -->
+				class="shadow-md w-[150px] mx-auto"
+			/>
 		</div>
 	</section>
 	<div class="max-w-4xl container space-y-20">
