@@ -13,21 +13,18 @@
 		gsap.registerPlugin(ScrollTrigger);
 
 		const home_page_tl = gsap
-			.timeline()
+			.timeline({ delay: 2 })
 			.from('.hero .text', {
 				y: 200,
+				autoAlpha: 0,
 				stagger: 0.3,
 				ease: 'back.out(.8)',
 				duration: 1
 			})
-			.from('.hero-image', {
-				autoAlpha: 0,
-				y: 500,
-				rotate: 20
-			})
 			.from(
 				'.hero .hero-skill',
 				{
+					autoAlpha: 0,
 					y: 200,
 					stagger: 0.5
 				},
@@ -36,6 +33,7 @@
 			.from(
 				'.hero .skill-dot',
 				{
+					autoAlpha: 0,
 					scale: 0,
 					stagger: 0.5
 				},
@@ -44,6 +42,11 @@
 			.to('.hero-skills', {
 				gap: 2,
 				duration: 0.2
+			})
+			.from('.hero-image', {
+				autoAlpha: 0,
+				y: 50,
+				rotate: 20
 			});
 
 		const intro_texts: HTMLHtmlElement[] = gsap.utils.toArray('.brief-intro > *');
@@ -59,6 +62,7 @@
 					delay: (index + 1) / 10
 				});
 		});
+
 		const project_cards: HTMLHtmlElement[] = gsap.utils.toArray('.project_card');
 		project_cards.forEach((project_card) => {
 			gsap
@@ -75,6 +79,7 @@
 					autoAlpha: 0
 				});
 		});
+
 		const big_project_cards: HTMLHtmlElement[] = gsap.utils.toArray('.project_card-big');
 		big_project_cards.forEach((big_project_cards) => {
 			gsap
@@ -104,6 +109,7 @@
 		}
 	];
 	const projects = data.projects.slice(0, 6);
+	const values = data.values.slice(0, 6);
 </script>
 
 <svelte:head>
@@ -116,23 +122,23 @@
 			<div class="flex flex-col justify-center">
 				<div class="drop-shadow-lg">
 					<div class="overflow-hidden">
-						<h3 class="text text-lg">Hello there, I am</h3>
+						<h3 class="text invisible text-lg">Hello there, I am</h3>
 					</div>
 					<div class="overflow-hidden">
-						<h1 class="text text-6xl">Ibrahim</h1>
+						<h1 class="text invisible text-6xl">Ibrahim</h1>
 					</div>
 					<div class="overflow-hidden">
-						<h1 class="text text-6xl opacity-80 dark:opacity-70">Abdulhameed</h1>
+						<h1 class="text invisible text-6xl opacity-80 dark:opacity-70">Abdulhameed</h1>
 					</div>
 				</div>
 				<div class="flex gap-4 items-center overflow-hidden hero-skills">
-					<p class="font-semibold hero-skill">A developer</p>
-					<p class="text-6xl skill-dot">&middot;</p>
-					<p class="font-semibold hero-skill">A creative</p>
-					<p class="text-6xl skill-dot">&middot;</p>
-					<p class="font-semibold hero-skill">A problem solver</p>
-					<p class="text-6xl skill-dot">&middot;</p>
-					<p class="font-semibold hero-skill">A team player</p>
+					<p class="invisible font-semibold hero-skill">A developer</p>
+					<p class="invisible text-6xl skill-dot">&middot;</p>
+					<p class="invisible font-semibold hero-skill">A creative</p>
+					<p class="invisible text-6xl skill-dot">&middot;</p>
+					<p class="invisible font-semibold hero-skill">A problem solver</p>
+					<p class="invisible text-6xl skill-dot">&middot;</p>
+					<p class="invisible font-semibold hero-skill">A team player</p>
 				</div>
 			</div>
 		</div>
@@ -140,31 +146,35 @@
 	<img
 		src="/images/bitmoji/hi.png"
 		alt="hi"
-		class="hero-image ml-auto mr-12 w-[20%] rellax -mt-30"
+		class="hero-image invisible ml-auto mr-12 w-[20%] rellax -mt-30"
 		data-rellax-speed={4}
 	/>
 	<section>
 		<div class="py-20 max-w-5xl container">
 			<div class="grid grid-cols-3 brief-intro gap-4">
-				<div class="card-inverted">
-					<h3 class="text-xl font-semibold">Motivation</h3>
-					<p>
+				<div class="invisible card-inverted text-justify space-y-2">
+					<h3 class="text-2xl font-semibold">Motivation</h3>
+					<p class="text-sm">
 						I enjoy doing what I do. Having oppurtunities to learn is also something I have found
 						rewarding and learnt to love. There's a lot to lose if I don't go on. This is why I live
 						to do this, everyday!
 					</p>
 				</div>
-				<div class="card-inverted">
-					<h3 class="text-xl font-semibold">Work choices</h3>
-					<p>
+				<div class="invisible card-inverted text-justify space-y-2">
+					<h3 class="text-2xl font-semibold">Work choices</h3>
+					<p class="text-sm">
 						New challengs, solving problems, progressive work, ego crushing challenges :),
 						innovative ideas, creativity, interesting perspectives and artistry are amongst the
 						things I look for in projects I join in.
 					</p>
 				</div>
-				<div class="card-inverted">
-					<h3 class="text-xl font-semibold">Values</h3>
-					<p>Honor, Honesty, Respect,</p>
+				<div class="invisible card-inverted text-center space-y-2">
+					<h3 class="text-2xl font-semibold">Values</h3>
+					<ul class="text-sm">
+						{#each values as value}
+							<li>{value}</li>
+						{/each}
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -179,12 +189,10 @@
 	<div class="max-w-4xl container space-y-20">
 		<div class="py-20">
 			<div class="grid grid-cols-2 gap-8">
-				<div class="p-4 sticky top-0 h-max text-right">
+				<div class="p-4 sticky top-0 h-max text-center">
 					<h2 class="text-3xl font-semibold">Some of my skills</h2>
-					<p>Let's see a nonExhaustive list of skills I have gathered over the years</p>
-					<a href="/projects/" class="border-b pb-1 hover:pb-0 text-sm transition-all lowercase">
-						See others
-					</a>
+					<p>These are some of the skills I have gathered over the years.</p>
+					<a href="/resume/" class="link"> See more </a>
 				</div>
 				<div class="relative">
 					<div
@@ -203,7 +211,7 @@
 										style:margin-top={`${Math.floor(Math.random() * 38)}px`}
 										style:margin-bottom={`${Math.floor(Math.random() * 30)}px`}
 									>
-										<li>- {skill}</li>
+										<li>{skill}</li>
 									</div>
 								</div>
 							{/each}
@@ -217,9 +225,7 @@
 				<div class="p-4 mb-20 text-right">
 					<h2 class="text-3xl font-semibold">Some of my projects</h2>
 					<p>Enjoy.</p>
-					<a href="/projects/" class="border-b pb-1 hover:pb-0 text-sm transition-all lowercase">
-						See others
-					</a>
+					<a href="/projects/" class="link"> See more </a>
 				</div>
 				<div class="mt-20">
 					<ul class="grid grid-cols-3 text-center gap-2">
@@ -228,7 +234,7 @@
 							data-rellax-speed={1}
 						>
 							{#each projects as project}
-								<div class="!p-1 card project_card-big">
+								<div class="!p-1 card project_card-big invisible">
 									<a
 										href={`/images/projects/${project.title.toLowerCase()} ${1}.png`}
 										target="_blank"
@@ -251,7 +257,7 @@
 							{#each projects as project}
 								<div class="space-y-2">
 									{#each [2, 3] as count}
-										<div class="!p-1 card project_card">
+										<div class="!p-1 card project_card invisible">
 											<a
 												href={`/images/projects/${project.title.toLowerCase()} ${count}.png`}
 												target="_blank"
