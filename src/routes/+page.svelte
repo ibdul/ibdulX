@@ -1,9 +1,12 @@
 <script lang="ts">
-	import Rellax from 'rellax';
-	import { onMount } from 'svelte';
-
 	import gsap from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+	import Rellax from 'rellax';
+
+	import { onMount } from 'svelte';
+
+	import type { PageData } from './$types';
+	export let data: PageData;
 
 	onMount(() => {
 		const RELLAX = new Rellax('.rellax');
@@ -100,48 +103,7 @@
 			skills: ['Django', 'NodeJs', 'Express']
 		}
 	];
-	const projects = [
-		{
-			title: '2go',
-			brief: 'websockets powered realtime chat app',
-			technologies: ['Python', 'Django', 'Websockets']
-		},
-		{
-			title: 'Exquise montres',
-			brief: '3D watch configurator and store',
-			technologies: ['ThreeJs', 'Nuxt js']
-		},
-		{
-			title: 'FaasShoes',
-			brief: 'Animated shoes store',
-			technologies: ['Gsap', 'Vue js']
-		},
-		{
-			title: 'Watchkings',
-			brief: 'Luxury watch store',
-			technologies: ['Wordpress', 'woocommerce']
-		},
-		{
-			title: 'IGG',
-			brief: 'indomitable good grades informational website',
-			technologies: ['Pug js', 'TailwindCSS', 'AOS', 'Gulp']
-		},
-		{
-			title: 'The great outdoors',
-			brief: 'design implementation of an adventure website',
-			technologies: ['next js', 'TailwindCSS']
-		},
-		{
-			title: 'Arounda',
-			brief: 'Arounda website clone',
-			technologies: ['Sveltekit', 'TailwindCSS', 'AOS']
-		},
-		{
-			title: 'Portfolio',
-			brief: 'This website :)',
-			technologies: ['Sveltekit', 'TailwindCSS', 'Gsap', 'Rellax js']
-		}
-	];
+	const projects = data.projects;
 </script>
 
 <svelte:head>

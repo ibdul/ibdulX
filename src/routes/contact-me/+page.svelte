@@ -1,16 +1,11 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
-	// import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-	// import Rellax from 'rellax';
-
 	import { onMount } from 'svelte';
 
-	const contact_infos = [
-		{ title: 'Phone', values: ['+234 903 900 6517'], link_prefix: 'tel:' },
-		{ title: 'Email', values: ['i.ibrahim.abdulhameed@gmail.com'], link_prefix: 'mailto:' },
-		{ title: 'Twitter', values: ['iAmIbdul'], link_prefix: 'https://twitter.com/' },
-		{ title: 'GitHub', values: ['ibdul'], link_prefix: 'https://github.com/' }
-	];
+	import type { PageData } from './$types';
+	export let data: PageData;
+
+	const contact_infos = data.contact_infos;
 
 	var tl = gsap.timeline({
 		delay: 2
