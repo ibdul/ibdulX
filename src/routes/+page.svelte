@@ -89,9 +89,21 @@
 				});
 		});
 	});
-
-	const skill_sets = data.skill_sets;
-	const projects = data.projects;
+	const skill_sets = [
+		{
+			title: 'Languages',
+			skills: ['Javascript', 'Python', 'Solidity', 'Mathlab']
+		},
+		{
+			title: 'Frontend',
+			skills: ['Vue js', 'Svelte js', 'React js', 'Nuxt js', 'Sveltekit']
+		},
+		{
+			title: 'Backend',
+			skills: ['Django', 'NodeJs', 'Express']
+		}
+	];
+	const projects = data.projects.slice(0, 6);
 </script>
 
 <svelte:head>
