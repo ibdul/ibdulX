@@ -61,11 +61,11 @@
 	<title>Resume | Ibrahim Abdulhameed</title>
 </svelte:head>
 
-<section class="container max-w-5xl print:space-y-8 resume-page">
+<section class="container max-w-5xl print:space-y-8 resume-page max-xl:px-4">
 	<h1 class="text-[0px] font-semibold invisible print:visible print:text-2xl">
 		Ibrahim Abdulhameed.
 	</h1>
-	<div class="grid grid-cols-3 gap-4 print:gap-0">
+	<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 print:gap-0">
 		<div class="w-full card invisible space-y-4">
 			<h2 class="text-sm font-semibold">Basic Information</h2>
 			<p class="leading-relaxed">
@@ -88,7 +88,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="gap-4 row-span-3 flex flex-col">
+		<div class="gap-4 max-sm:col-span-1 max-md:col-span-2 md:row-span-3 grid max-md:grid-cols-2">
 			<div class="w-full card invisible space-y-4">
 				<h2 class="text-sm font-semibold">Skills</h2>
 				{#each skill_sets as skill_set}
@@ -102,35 +102,37 @@
 					</div>
 				{/each}
 			</div>
-			<div class="w-full card invisible space-y-4">
-				<h2 class="text-sm font-semibold">Preference</h2>
-				<p class="leading-relaxed">
-					I love to work in friendly, healthy environments where I can get to learn, teach and
-					explore. A place where I can make friends that could help me grow into a better version of
-					myself. This applies to both remote and in-office jobs. I would love to work in France
-					someday. Seeing the quality of work that comes from there, I would love to learn from that
-					as well.
-				</p>
-			</div>
-			<div class="w-full flex-1 card invisible space-y-4">
-				<h2 class="text-sm font-semibold">Quote</h2>
-				{#key quote}
-					<div in:fade class="space-y-1">
-						<p class="text-sm text-justify">
-							{quote.text}
-						</p>
-						<p class="italic text-right text-xs text-opacity-25">
-							- {quote.author}.
-						</p>
-					</div>
-				{/key}
-				<button
-					class="inline-flex justify-center items-center w-6 h-6 p-2 rounded-full hover:shadow-md"
-					on:click={() => (quote = getQuote())}>&#128472;</button
-				>
+			<div class="grid gap-4">
+				<div class="w-full card invisible space-y-4">
+					<h2 class="text-sm font-semibold">Preference</h2>
+					<p class="leading-relaxed">
+						I love to work in friendly, healthy environments where I can get to learn, teach and
+						explore. A place where I can make friends that could help me grow into a better version
+						of myself. This applies to both remote and in-office jobs. I would love to work in
+						France someday. Seeing the quality of work that comes from there, I would love to learn
+						from that as well.
+					</p>
+				</div>
+				<div class="w-full flex-1 card invisible space-y-4">
+					<h2 class="text-sm font-semibold">Quote</h2>
+					{#key quote}
+						<div in:fade class="space-y-1">
+							<p class="text-sm text-justify">
+								{quote.text}
+							</p>
+							<p class="italic text-right text-xs text-opacity-25">
+								- {quote.author}.
+							</p>
+						</div>
+					{/key}
+					<button
+						class="inline-flex justify-center items-center w-6 h-6 p-2 rounded-full hover:shadow-md"
+						on:click={() => (quote = getQuote())}>&#128472;</button
+					>
+				</div>
 			</div>
 		</div>
-		<div class="w-full card invisible col-span-2 space-y-4 text-justify">
+		<div class="w-full card invisible sm:col-span-2 space-y-4 text-justify">
 			<h2 class="text-sm font-semibold">Work History</h2>
 			<p>
 				Over the years, I have be fortunate enough to work on a few projects many of which were
@@ -223,7 +225,7 @@
 			</div>
 		</div>
 		<div
-			class="w-full col-span-2 card invisible !bg-slate-900 bg-opacity-80 text-slate-100 backdrop-blur-md shadow-xl rounded-md p-6 space-y-2 text-center"
+			class="w-full sm:col-span-2 card invisible !bg-slate-900 bg-opacity-80 text-slate-100 backdrop-blur-md shadow-xl rounded-md p-6 space-y-2 text-center"
 		>
 			<h2 class="text-xl text-primary font-semibold">Thank you for your time.</h2>
 			<p class="text-sm ">Looking forward to talking to you.</p>
