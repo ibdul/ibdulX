@@ -6,13 +6,13 @@
 	import { onDestroy, onMount } from 'svelte';
 	gsap.registerPlugin(ScrollTrigger);
 
-	const gsap_context = gsap.context(() => {});
+	let footer_gsap_contexts: gsap.Context[] = [];
 
 	onMount(() => {
 		ScrollTrigger.refresh();
 		ScrollTrigger.update();
 
-		gsap_context.add(() => {
+		const footer_gsap_context = gsap.context(() => {
 			var footerTL = gsap.timeline({
 				scrollTrigger: {
 					trigger: '.site_footer',
@@ -39,10 +39,13 @@
 					ease: 'back.out(0.4)'
 				});
 		});
+		footer_gsap_contexts.push(footer_gsap_context);
 	});
 
 	onDestroy(() => {
-		gsap_context.revert();
+		footer_gsap_contexts.forEach((context) => {
+			context.revert();
+		});
 	});
 
 	const page_links = [

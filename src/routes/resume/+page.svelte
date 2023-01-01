@@ -7,10 +7,10 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	const gsap_context = gsap.context(() => {});
+	const resume_gsap_contexts: gsap.Context[] = [];
 
 	onMount(() => {
-		gsap_context.add(() => {
+		const resume_gsap_context = gsap.context(() => {
 			var tl = gsap.timeline({
 				delay: 2
 			});
@@ -24,6 +24,8 @@
 				ease: 'back.out(1)'
 			});
 		}, '.resume-page');
+
+		resume_gsap_contexts.push(resume_gsap_context);
 	});
 
 	const skill_sets = data.skill_sets;
@@ -53,7 +55,9 @@
 		return quote;
 	}
 	onDestroy(() => {
-		gsap_context.revert();
+		resume_gsap_contexts.forEach((context) => {
+			context.revert();
+		});
 	});
 </script>
 

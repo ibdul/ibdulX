@@ -6,10 +6,10 @@
 
 	import { onDestroy, onMount } from 'svelte';
 
-	const gsap_context = gsap.context(() => {});
+	let header_gsap_contexts: gsap.Context[] = [];
 
 	onMount(() => {
-		gsap_context.add(() => {
+		const header_gsap_context = gsap.context(() => {
 			var headerTL = gsap.timeline();
 
 			headerTL
@@ -27,6 +27,8 @@
 					ease: 'back.out(1)'
 				});
 		}, '.site_header');
+
+		header_gsap_contexts.push(header_gsap_context);
 	});
 
 	const page_links = [
@@ -45,7 +47,9 @@
 		localStorage.setItem('dark_mode', String($dark_mode));
 	}
 	onDestroy(() => {
-		gsap_context.revert();
+		header_gsap_contexts.forEach((context) => {
+			context.revert();
+		});
 	});
 </script>
 

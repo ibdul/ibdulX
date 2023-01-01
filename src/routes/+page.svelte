@@ -8,7 +8,7 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	const gsap_context = gsap.context(() => {});
+	let homepage_gsap_contexts: gsap.Context[] = [];
 
 	onMount(() => {
 		ScrollTrigger.refresh();
@@ -16,7 +16,7 @@
 
 		const RELLAX = new Rellax('.rellax');
 
-		gsap_context.add(() => {
+		const homepage_gsap_context = gsap.context(() => {
 			gsap.registerPlugin(ScrollTrigger);
 
 			const home_page_tl = gsap
@@ -101,6 +101,8 @@
 					});
 			});
 		}, '.home_page');
+
+		homepage_gsap_contexts.push(homepage_gsap_context);
 	});
 	const skill_sets = [
 		{
@@ -120,7 +122,9 @@
 	const values = data.values.slice(0, 6);
 
 	onDestroy(() => {
-		gsap_context.revert();
+		homepage_gsap_contexts.forEach((context) => {
+			context.revert();
+		});
 	});
 </script>
 

@@ -8,7 +8,7 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	const gsap_context = gsap.context(() => {});
+	let projects_gsap_contexts: gsap.Context[] = [];
 
 	onMount(() => {
 		const RELLAX = new Rellax('.rellax');
@@ -16,7 +16,7 @@
 		ScrollTrigger.refresh();
 		ScrollTrigger.update();
 
-		gsap_context.add(() => {
+		const projects_gsap_context = gsap.context(() => {
 			gsap.registerPlugin(ScrollTrigger);
 
 			const cards: HTMLHtmlElement[] = gsap.utils.toArray('.card');
@@ -38,12 +38,15 @@
 					autoAlpha: 0
 				});
 			});
-			const projects_tl = gsap.timeline({ scrollTrigger: {} });
 		}, '.projects_page');
+
+		projects_gsap_contexts.push(projects_gsap_context);
 	});
 
 	onDestroy(() => {
-		gsap_context.revert();
+		projects_gsap_contexts.forEach((context) => {
+			context.revert();
+		});
 	});
 </script>
 

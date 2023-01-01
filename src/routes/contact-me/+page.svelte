@@ -7,10 +7,10 @@
 
 	const contact_infos = data.contact_infos;
 
-	const gsap_context = gsap.context(() => {});
+	let contact_gsap_contexts: gsap.Context[] = [];
 
 	onMount(() => {
-		gsap_context.add(() => {
+		const contact_gsap_context = gsap.context(() => {
 			var tl = gsap.timeline({
 				delay: 2
 			});
@@ -28,10 +28,13 @@
 				ease: 'back.out(0.8)'
 			});
 		}, '.contact-page');
+		contact_gsap_contexts.push(contact_gsap_context);
 	});
 
 	onDestroy(() => {
-		gsap_context.revert();
+		contact_gsap_contexts.forEach((context) => {
+			context.revert();
+		});
 	});
 </script>
 
