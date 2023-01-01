@@ -38,8 +38,8 @@
 <svelte:head>
 	<title>Contact | Ibrahim Abdulhameed</title>
 </svelte:head>
-<div class="container max-w-5xl flex justify-center items-center contact-page">
-	<div class="grid grid-cols-3 gap-4">
+<div class="container max-w-5xl flex justify-center items-center contact-page max-xl:px-4">
+	<div class="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
 		<div class="page_copy invisible">
 			<h1 class="text-2xl text-primary">Contact Me</h1>
 			<p class="text-sm text-justify">
@@ -49,7 +49,7 @@
 				<span class="text-primary">:)</span>
 			</p>
 		</div>
-		<div class="col-span-2 grid grid-cols-2 gap-2">
+		<div class="col-span-2 grid sm:grid-cols-2 gap-2">
 			{#each contact_infos as contact_info}
 				<div class="invisible text-sm w-full card space-y-4">
 					<h2 class="font-semibold">{contact_info.title}</h2>
