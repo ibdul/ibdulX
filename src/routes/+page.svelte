@@ -131,7 +131,7 @@
 <div class="home_page flex-1">
 	<section class="relative">
 		<div class="container max-w-5xl hero min-h-[70vh] flex justify-center items-center text-center">
-			<div class="flex flex-col justify-center">
+			<div class="flex flex-col justify-center max-sm:px-2">
 				<div class="drop-shadow-lg">
 					<div class="overflow-hidden">
 						<h3 class="text invisible text-lg">Hello there, I am</h3>
@@ -158,13 +158,13 @@
 	<img
 		src="/images/bitmoji/hi.png"
 		alt="hi"
-		class="hero-image invisible ml-auto mr-12 w-[20%] rellax -mt-30"
+		class="hero-image invisible ml-auto mr-12 w-[20%] rellax lg:-mt-30 "
 		data-rellax-speed={4}
 	/>
 	<section>
-		<div class="py-20 max-w-5xl container">
-			<div class="grid grid-cols-3 brief-intro gap-4">
-				<div class="invisible card-inverted text-justify space-y-2">
+		<div class="py-20 max-w-5xl container max-xl:px-4">
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 brief-intro gap-4">
+				<div class="invisible card-inverted text-justify space-y-2 sm:max-lg:col-span-2">
 					<h3 class="text-2xl font-semibold">Motivation</h3>
 					<p class="text-sm">
 						I enjoy doing what I do. Having oppurtunities to learn is also something I have found
@@ -200,15 +200,15 @@
 	</section>
 	<div class="max-w-4xl container space-y-20">
 		<div class="py-20">
-			<div class="grid grid-cols-2 gap-8">
-				<div class="p-4 sticky top-0 h-max text-center">
+			<div class="grid lg:grid-cols-2 gap-8">
+				<div class="p-4 lg:sticky top-0 h-max text-center">
 					<h2 class="text-3xl font-semibold">Some of my skills</h2>
 					<p>These are some of the skills I have gathered over the years.</p>
 					<a href="/resume/" class="link"> See more </a>
 				</div>
-				<div class="relative">
+				<div class="relative max-lg:px-4">
 					<div
-						class="bg-[url('/images/bitmoji/halo.png')] bg-contain bg-center absolute inset-0 opacity-70"
+						class="bg-[url('/images/bitmoji/halo.png')] bg-no-repeat bg-contain bg-center absolute inset-0 opacity-70"
 					/>
 					<ul class="relative grid grid-cols-5 text-center gap-4">
 						{#each skill_sets as skill_set}
