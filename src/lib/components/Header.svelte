@@ -49,9 +49,9 @@
 	});
 </script>
 
-<header class="site_header container max-w-5xl">
-	<nav class="flex justify-between items-center py-5">
-		<div class="header-copy group">
+<header class="site_header container max-xl:px-4 max-w-5xl">
+	<nav class="flex max-md:flex-col justify-between items-center py-5">
+		<div class="header-copy group max-md:text-center">
 			<div class="overflow-hidden invisible">
 				<div
 					class="text-xl font-bold group-hover:-translate-y-[26px] transition-all ease-in-out h-[26px]"
@@ -64,12 +64,12 @@
 				{page_links.find((item) => item.href == $page.url.pathname)?.text}
 			</p>
 		</div>
-		<ul class="inline-flex items-center justify-center">
+		<ul class="inline-flex flex-wrap items-center justify-center">
 			{#each page_links as link}
 				<li class="header-link invisible">
 					<a
 						href={link.href}
-						class={`inline-block p-8 font-semibold text-sm transition-all ${
+						class={`inline-block p-4 md:p-8 font-semibold text-sm transition-all ${
 							$page.url.pathname == link.href ? 'text-primary' : 'hover:pb-4'
 						}`}
 					>
