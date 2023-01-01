@@ -65,7 +65,8 @@
 				</div>
 			</div>
 			<p class="page-title text-xs lowercase font-semibold opacity-50 invisible">
-				{page_links.find((item) => item.href == $page.url.pathname)?.text}
+				{page_links.find((item) => item.href == $page.url.pathname)?.text ||
+					`${$page.status} error`}
 			</p>
 		</div>
 		<ul class="inline-flex flex-wrap items-center justify-center">
