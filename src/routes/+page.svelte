@@ -3,96 +3,104 @@
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 	import Rellax from 'rellax';
 
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	onMount(() => {
-		const RELLAX = new Rellax('.rellax');
-		gsap.registerPlugin(ScrollTrigger);
+	const gsap_context = gsap.context(() => {});
 
-		const home_page_tl = gsap
-			.timeline({ delay: 2 })
-			.from('.hero .text', {
-				y: 200,
-				autoAlpha: 0,
-				stagger: 0.3,
-				ease: 'back.out(.8)',
-				duration: 1
-			})
-			.from(
-				'.hero .hero-skill',
-				{
-					autoAlpha: 0,
+	onMount(() => {
+		ScrollTrigger.refresh();
+		ScrollTrigger.update();
+
+		const RELLAX = new Rellax('.rellax');
+
+		gsap_context.add(() => {
+			gsap.registerPlugin(ScrollTrigger);
+
+			const home_page_tl = gsap
+				.timeline({ delay: 2 })
+				.from('.hero .text', {
 					y: 200,
-					stagger: 0.5
-				},
-				'<'
-			)
-			.from(
-				'.hero .skill-dot',
-				{
 					autoAlpha: 0,
-					scale: 0,
-					stagger: 0.5
-				},
-				'-=.8'
-			)
-			.to('.hero-skills', {
-				gap: 2,
-				duration: 0.2
-			})
-			.from('.hero-image', {
-				autoAlpha: 0,
-				y: 50,
-				rotate: 20
+					stagger: 0.3,
+					ease: 'back.out(.8)',
+					duration: 1
+				})
+				.from(
+					'.hero .hero-skill',
+					{
+						autoAlpha: 0,
+						y: 200,
+						stagger: 0.5
+					},
+					'<'
+				)
+				.from(
+					'.hero .skill-dot',
+					{
+						autoAlpha: 0,
+						scale: 0,
+						stagger: 0.5
+					},
+					'-=.8'
+				)
+				.to('.hero-skills', {
+					gap: 2,
+					duration: 0.2
+				})
+				.from('.hero-image', {
+					autoAlpha: 0,
+					y: 50,
+					rotate: 20
+				});
+
+			const intro_texts: HTMLHtmlElement[] = gsap.utils.toArray('.brief-intro > *');
+			intro_texts.forEach((intro_text, index) => {
+				gsap
+					.timeline({
+						scrollTrigger: { trigger: '.brief-intro', toggleActions: 'play pause resume reset' }
+					})
+					.from(intro_text, {
+						y: 500,
+						ease: 'ease.out(0.8)',
+						autoAlpha: 0,
+						delay: (index + 1) / 10
+					});
 			});
 
-		const intro_texts: HTMLHtmlElement[] = gsap.utils.toArray('.brief-intro > *');
-		intro_texts.forEach((intro_text, index) => {
-			gsap
-				.timeline({
-					scrollTrigger: { trigger: '.brief-intro', toggleActions: 'play pause resume reset' }
-				})
-				.from(intro_text, {
-					y: 500,
-					ease: 'ease.out(0.8)',
-					autoAlpha: 0,
-					delay: (index + 1) / 10
-				});
-		});
+			const project_cards: HTMLHtmlElement[] = gsap.utils.toArray('.project_card');
+			project_cards.forEach((project_card) => {
+				gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: project_card,
+							start: 'center bottom',
+							toggleActions: 'play pause resume reset'
+						}
+					})
+					.from(project_card, {
+						x: 500,
+						rotate: -30,
+						autoAlpha: 0
+					});
+			});
 
-		const project_cards: HTMLHtmlElement[] = gsap.utils.toArray('.project_card');
-		project_cards.forEach((project_card) => {
-			gsap
-				.timeline({
-					scrollTrigger: {
-						trigger: project_card,
-						start: 'center bottom',
-						toggleActions: 'play pause resume reset'
-					}
-				})
-				.from(project_card, {
-					x: 500,
-					rotate: -30,
-					autoAlpha: 0
-				});
-		});
-
-		const big_project_cards: HTMLHtmlElement[] = gsap.utils.toArray('.project_card-big');
-		big_project_cards.forEach((big_project_cards) => {
-			gsap
-				.timeline({
-					scrollTrigger: { trigger: big_project_cards, toggleActions: 'play pause resume reset' }
-				})
-				.from(big_project_cards, {
-					x: -500,
-					rotate: 20,
-					delay: 0.3,
-					autoAlpha: 0
-				});
-		});
+			const big_project_cards: HTMLHtmlElement[] = gsap.utils.toArray('.project_card-big');
+			big_project_cards.forEach((big_project_cards) => {
+				gsap
+					.timeline({
+						scrollTrigger: { trigger: big_project_cards, toggleActions: 'play pause resume reset' }
+					})
+					.from(big_project_cards, {
+						x: -500,
+						rotate: 20,
+						delay: 0.3,
+						autoAlpha: 0
+					});
+			});
+		}, '.home_page');
 	});
 	const skill_sets = [
 		{
@@ -110,6 +118,10 @@
 	];
 	const projects = data.projects.slice(0, 6);
 	const values = data.values.slice(0, 6);
+
+	onDestroy(() => {
+		gsap_context.revert();
+	});
 </script>
 
 <svelte:head>

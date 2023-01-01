@@ -1,25 +1,29 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
 
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	onMount(() => {
-		var tl = gsap.timeline({
-			delay: 2
-		});
+	const gsap_context = gsap.context(() => {});
 
-		tl.from('.resume-page .card', {
-			autoAlpha: 0,
-			y: 200,
-			rotate: 20,
-			scale: 0,
-			stagger: 0.09,
-			ease: 'back.out(1)'
-		});
+	onMount(() => {
+		gsap_context.add(() => {
+			var tl = gsap.timeline({
+				delay: 2
+			});
+
+			tl.from('.card', {
+				autoAlpha: 0,
+				y: 200,
+				rotate: 20,
+				scale: 0,
+				stagger: 0.09,
+				ease: 'back.out(1)'
+			});
+		}, '.resume-page');
 	});
 
 	const skill_sets = data.skill_sets;
@@ -48,6 +52,9 @@
 		seen_quotes[quote.id] = true;
 		return quote;
 	}
+	onDestroy(() => {
+		gsap_context.revert();
+	});
 </script>
 
 <svelte:head>

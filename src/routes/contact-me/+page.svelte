@@ -1,29 +1,37 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	import type { PageData } from './$types';
 	export let data: PageData;
 
 	const contact_infos = data.contact_infos;
 
-	var tl = gsap.timeline({
-		delay: 2
-	});
+	const gsap_context = gsap.context(() => {});
+
 	onMount(() => {
-		tl.from('.contact-page .page_copy ', {
-			autoAlpha: 0,
-			y: 200,
-			rotate: 30,
-			ease: 'back.out(0.8)'
-		}).from('.contact-page .card', {
-			autoAlpha: 0,
-			x: 200,
-			scale: 0,
-			stagger: 0.09,
-			rotate: 30,
-			ease: 'back.out(0.8)'
-		});
+		gsap_context.add(() => {
+			var tl = gsap.timeline({
+				delay: 2
+			});
+			tl.from('.page_copy ', {
+				autoAlpha: 0,
+				y: 200,
+				rotate: 30,
+				ease: 'back.out(0.8)'
+			}).from('.card', {
+				autoAlpha: 0,
+				x: 200,
+				scale: 0,
+				stagger: 0.09,
+				rotate: 30,
+				ease: 'back.out(0.8)'
+			});
+		}, '.contact-page');
+	});
+
+	onDestroy(() => {
+		gsap_context.revert();
 	});
 </script>
 

@@ -3,35 +3,47 @@
 	import gsap from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	import type { PageData } from './$types';
 	export let data: PageData;
 
+	const gsap_context = gsap.context(() => {});
+
 	onMount(() => {
 		const RELLAX = new Rellax('.rellax');
-		gsap.registerPlugin(ScrollTrigger);
 
-		const cards: HTMLHtmlElement[] = gsap.utils.toArray('.projects_page .card');
+		ScrollTrigger.refresh();
+		ScrollTrigger.update();
 
-		cards.forEach((card, index) => {
-			let decoration_tl = gsap.timeline({
-				start: 'center bottom',
-				delay: index * 0.03,
-				ease: 'back.out(0.8)',
-				scrollTrigger: {
-					trigger: card,
-					toggleActions: 'play pause resume reset'
-				}
+		gsap_context.add(() => {
+			gsap.registerPlugin(ScrollTrigger);
+
+			const cards: HTMLHtmlElement[] = gsap.utils.toArray('.card');
+
+			cards.forEach((card, index) => {
+				let decoration_tl = gsap.timeline({
+					start: 'center bottom',
+					delay: index * 0.03,
+					ease: 'back.out(0.8)',
+					scrollTrigger: {
+						trigger: card,
+						toggleActions: 'play pause resume reset'
+					}
+				});
+				decoration_tl.from(card, {
+					x: gsap.utils.random([-120, -220, 230, 130]),
+					y: gsap.utils.random([-120, -220, 230, 130]),
+					rotate: gsap.utils.random([-12, -22, 23, 13]),
+					autoAlpha: 0
+				});
 			});
-			decoration_tl.from(card, {
-				x: gsap.utils.random([-120, -220, 230, 130]),
-				y: gsap.utils.random([-120, -220, 230, 130]),
-				rotate: gsap.utils.random([-12, -22, 23, 13]),
-				autoAlpha: 0
-			});
-		});
-		const projects_tl = gsap.timeline({ scrollTrigger: {} });
+			const projects_tl = gsap.timeline({ scrollTrigger: {} });
+		}, '.projects_page');
+	});
+
+	onDestroy(() => {
+		gsap_context.revert();
 	});
 </script>
 

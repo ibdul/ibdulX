@@ -1,38 +1,48 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { gsap } from 'gsap';
 	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-	import { onMount } from 'svelte';
-
+	import { onDestroy, onMount } from 'svelte';
 	gsap.registerPlugin(ScrollTrigger);
 
-	onMount(() => {
-		var footerTL = gsap.timeline({
-			scrollTrigger: {
-				trigger: '.site_footer',
-				start: '-40 bottom',
-				toggleActions: 'play complete resume restart'
-			}
-		});
+	const gsap_context = gsap.context(() => {});
 
-		footerTL
-			.from('.footer_links_bg', {
-				autoAlpha: 0
-			})
-			.from('.footer-link', {
-				duration: 0.8,
-				autoAlpha: 0,
-				y: 60,
-				stagger: 0.05,
-				ease: 'back.out(1)'
-			})
-			.from('.footer-copy > *', {
-				autoAlpha: 0,
-				y: 10,
-				stagger: 0.4,
-				ease: 'back.out(0.4)'
+	onMount(() => {
+		ScrollTrigger.refresh();
+		ScrollTrigger.update();
+
+		gsap_context.add(() => {
+			var footerTL = gsap.timeline({
+				scrollTrigger: {
+					trigger: '.site_footer',
+					start: '-40 bottom',
+					toggleActions: 'play complete resume restart'
+				}
 			});
+
+			footerTL
+				.from('.footer_links_bg', {
+					autoAlpha: 0
+				})
+				.from('.footer-link', {
+					duration: 0.8,
+					autoAlpha: 0,
+					y: 60,
+					stagger: 0.05,
+					ease: 'back.out(1)'
+				})
+				.from('.footer-copy > *', {
+					autoAlpha: 0,
+					y: 10,
+					stagger: 0.4,
+					ease: 'back.out(0.4)'
+				});
+		});
+	});
+
+	onDestroy(() => {
+		gsap_context.revert();
 	});
 
 	const page_links = [

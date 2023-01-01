@@ -4,25 +4,29 @@
 
 	import { gsap } from 'gsap';
 
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
+
+	const gsap_context = gsap.context(() => {});
 
 	onMount(() => {
-		var headerTL = gsap.timeline();
+		gsap_context.add(() => {
+			var headerTL = gsap.timeline();
 
-		headerTL
-			.from('.header-copy > *', {
-				autoAlpha: 0,
-				x: -1000,
-				stagger: 0.4,
-				ease: 'back.out(0.4)'
-			})
-			.from('.header-link', {
-				autoAlpha: 0,
-				duration: 0.8,
-				y: -600,
-				stagger: 0.05,
-				ease: 'back.out(1)'
-			});
+			headerTL
+				.from('.header-copy > *', {
+					autoAlpha: 0,
+					x: -1000,
+					stagger: 0.4,
+					ease: 'back.out(0.4)'
+				})
+				.from('.header-link', {
+					autoAlpha: 0,
+					duration: 0.8,
+					y: -600,
+					stagger: 0.05,
+					ease: 'back.out(1)'
+				});
+		}, '.site_header');
 	});
 
 	const page_links = [
@@ -40,9 +44,12 @@
 		$dark_mode = !$dark_mode;
 		localStorage.setItem('dark_mode', String($dark_mode));
 	}
+	onDestroy(() => {
+		gsap_context.revert();
+	});
 </script>
 
-<header class="container max-w-5xl">
+<header class="site_header container max-w-5xl">
 	<nav class="flex justify-between items-center py-5">
 		<div class="header-copy group">
 			<div class="overflow-hidden invisible">
