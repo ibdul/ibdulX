@@ -55,8 +55,8 @@
 	{#each data.projects as project}
 		<div class="space-y-4 relative border-primary border-b-2 !border-opacity-10">
 			<div class="z-2">
-				<div class="grid grid-cols-2 gap-4 items-start">
-					<div class="col-span-2 w-full !p-1 card invisible">
+				<div class="grid sm:grid-cols-2 gap-4 items-start">
+					<div class="sm:col-span-2 w-full !p-1 card invisible">
 						<a
 							href={`/images/projects/${project.title.toLowerCase()} ${1}.png`}
 							target="_blank"
@@ -70,7 +70,7 @@
 						</a>
 					</div>
 					{#each [2, 3, 4, 1] as count}
-						<div class="w-full !p-1 card invisible">
+						<div class={`w-full !p-1 card invisible ${count == 1 ? 'max-sm:max-w-0' : ''}`}>
 							<a
 								href={`/images/projects/${project.title.toLowerCase()} ${count}.png`}
 								target="_blank"
