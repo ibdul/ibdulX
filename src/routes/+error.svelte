@@ -68,40 +68,46 @@
 	<title>{$page.status} | Ibdul</title>
 </svelte:head>
 
-<section class="error_page max-w-4xl container flex-1 grid grid-cols-2 items-center">
-	<div class="w-[300px] relative">
-		<div class="image_container">
-			<img
-				src={`/images/bitmoji/${error_images[Math.floor(Math.random() * error_images.length)]}.png`}
-				alt="something went wrong"
-				class="invisible error_image"
-			/>
-		</div>
-		<div class="px-4 error_cards">
-			<div
-				class="invisible absolute bottom-3 right-0 !w-max card"
-				style:opacity={`${80 + Math.floor(Math.random() * 50)}%`}
-			>
-				Error
+<section class="error_page max-w-4xl container max-lg:px-4 flex-1 flex justify-center items-center">
+	<div class="max-md:text-center grid gap-4 md:grid-cols-2 md:items-center">
+		<div class="flex justify-center">
+			<div class="relative w-[300px]">
+				<div class="image_container">
+					<img
+						src={`/images/bitmoji/${
+							error_images[Math.floor(Math.random() * error_images.length)]
+						}.png`}
+						alt="something went wrong"
+						class="invisible error_image"
+					/>
+				</div>
+				<div class="px-4 error_cards">
+					<div
+						class="invisible absolute bottom-3 right-0 !w-max card"
+						style:opacity={`${80 + Math.floor(Math.random() * 50)}%`}
+					>
+						Error
+					</div>
+					<div
+						class="invisible absolute bottom-5 !w-max card"
+						style:opacity={`${80 + Math.floor(Math.random() * 50)}%`}
+					>
+						{$page.status}
+					</div>
+				</div>
 			</div>
-			<div
-				class="invisible absolute bottom-5 !w-max card"
-				style:opacity={`${80 + Math.floor(Math.random() * 50)}%`}
-			>
-				{$page.status}
+		</div>
+		<div class="flex flex-col gap-4 error_texts">
+			<h1 class="invisible text-3xl font-semibold">
+				Oops... <span class="text-red-500">We got a {$page.status}.</span>
+			</h1>
+			<div class="invisible text-sm">
+				<p>Something went wrong ({$page.error?.message})</p>
+				{#if $page.status == 404}
+					<p>The page you seek does not exist.</p>
+				{/if}
 			</div>
+			<p class="invisible">Return to <a href="/" class="font-semibold link">the homepage.</a></p>
 		</div>
-	</div>
-	<div class="flex flex-col gap-4 error_texts">
-		<h1 class="invisible text-3xl font-semibold">
-			Oops... <span class="text-red-500">We got a {$page.status}.</span>
-		</h1>
-		<div class="invisible text-sm">
-			<p>Something went wrong ({$page.error?.message})</p>
-			{#if $page.status == 404}
-				<p>The page you seek does not exist.</p>
-			{/if}
-		</div>
-		<p class="invisible">Return to <a href="/" class="font-semibold link">the homepage.</a></p>
 	</div>
 </section>
