@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { dark_mode } from '../../stores.js';
 
 	import { gsap } from 'gsap';
 
@@ -38,13 +37,14 @@
 		{ title: 'Contact Me', href: '/contact-me/', text: 'lets talk' }
 	];
 
-	onMount(() => {
-		$dark_mode = localStorage.getItem('dark_mode') == 'true';
-	});
-
 	function toggleDarkMode() {
-		$dark_mode = !$dark_mode;
-		localStorage.setItem('dark_mode', String($dark_mode));
+		if (document.documentElement.classList.contains('dark')) {
+			localStorage.removeItem('theme');
+			document.documentElement.classList.remove('dark');
+		} else {
+			localStorage.theme = 'dark';
+			document.documentElement.classList.add('dark');
+		}
 	}
 	onDestroy(() => {
 		header_gsap_contexts.forEach((context) => {

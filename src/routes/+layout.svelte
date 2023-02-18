@@ -24,11 +24,9 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
-	import { dark_mode } from '../stores.js';
 </script>
 
-<div class="site_container" class:dark={$dark_mode}>
+<div class="site_container">
 	<div
 		class="bg-gradient-to-br from from-slate-400/20 via-slate-200/20 dark:from-[#16131F] dark:to-[#100E18] transition-all duration-300 ease-in-out overflow-clip"
 	>
