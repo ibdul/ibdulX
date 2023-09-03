@@ -132,6 +132,13 @@
 	<title>Ibrahim Abdulhameed</title>
 	<meta name="google-site-verification" content="vqeKepdcOI3IrEr6Y1ON7q-pFhSqC93VwmmfrJbOSlc" />
 	<meta name="msvalidate.01" content="AD96E2B66E2403C17761B5249F1853DF" />
+	<script type="text/javascript">
+	    (function(c,l,a,r,i,t,y){
+	        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+	        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+	        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+	    })(window, document, "clarity", "script", "ip4b7o5tmb");
+	</script>
 </svelte:head>
 
 <div class="home_page flex-1">
