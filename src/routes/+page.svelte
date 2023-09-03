@@ -132,12 +132,22 @@
 	<title>Ibrahim Abdulhameed</title>
 	<meta name="google-site-verification" content="vqeKepdcOI3IrEr6Y1ON7q-pFhSqC93VwmmfrJbOSlc" />
 	<meta name="msvalidate.01" content="AD96E2B66E2403C17761B5249F1853DF" />
+	<!-- Bing Clarity -->
 	<script type="text/javascript">
 	    (function(c,l,a,r,i,t,y){
 	        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 	        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
 	        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 	    })(window, document, "clarity", "script", "ip4b7o5tmb");
+	</script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Z33WKTNMC"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'G-3Z33WKTNMC');
 	</script>
 </svelte:head>
 
