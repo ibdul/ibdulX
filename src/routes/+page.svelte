@@ -130,6 +130,7 @@
 
 <svelte:head>
 	<title>Ibrahim Abdulhameed</title>
+<meta name="google-site-verification" content="vqeKepdcOI3IrEr6Y1ON7q-pFhSqC93VwmmfrJbOSlc" />
 </svelte:head>
 
 <div class="home_page flex-1">
