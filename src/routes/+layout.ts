@@ -18,7 +18,7 @@ export const load: LayoutLoad = ({url})=>{
             { title: 'Twitter', values: ['iAmIbdul'], link_prefix: 'https://twitter.com/' },
             { title: 'GitHub', values: ['ibdul'], link_prefix: 'https://github.com/' }
         ],
-        hobbies:['Learning', 'Arts', 'Gaming', 'Movies', 'Travelling', 'Boxing'],
+        hobbies:['Learning', 'Arts', 'Movies', 'Travelling', 'Boxing', 'Skating'],
         interests: [
             '3D web',
             'Web3 and DAPS',
@@ -31,10 +31,48 @@ export const load: LayoutLoad = ({url})=>{
         ],
         jobs:[
             {
-                company: 'Team-X',
-                start_date: new Date('12/1/2018'),
+                company: 'Liberty Assured',
+                start_date: new Date('10/10/2023'),
                 is_still_here: true,
                 end_date: new Date(),
+                description: `Liberty Assured is a Licensed Financial Institution that is led by Individuals led by passion to bridge the divide in every economic spheres. We seek to bring Financial Liberty and Freedom by filling the void within the business sector ranging from Nano-Micro businesses to SME and personal finances. Customer growth and Satisfaction is our Success Story.`,
+                projects: [
+                    {
+                        title: 'GetLinked AI',
+                        description: `An AI powered appliacation that allows employers find and filter talents seamslessly. The application has many features and modules, including a Job Pipeline, Assessment and Interviews module, etc.`
+                    },
+                    {
+                        title: 'Ajo Loans',
+                        description: `This is a dashboard-style app that allows users of different classes manage loans. These user classes include borrowers, loan officers, loan agents, loan managers ...`
+                    },
+                ]
+            },
+            {
+                company: 'MacGroups Tech',
+                start_date: new Date('12/22/2023'),
+                is_still_here: true,
+                end_date: new Date(),
+                description: `A full fledged agency that handles everything needed to turn an idea into a solution`,
+                projects: [
+                    {
+                        title: 'Paul Bowles',
+                        description: `A biographic-style website for American expatriate composer, author and translator, Paul Bowles.`
+                    },
+                    {
+                        title: 'ADOLV',
+                        description: `African Diaspora of Las Vagas portal website that allows members list businesses and engage with the community.`
+                    },
+                    {
+                        title: 'Alexy Polska Tech',
+                        description: `A gadget e-commerce website that allows users buy and earn from commissions.`
+                    },
+                ]
+            },
+            {
+                company: 'Team-X',
+                start_date: new Date('12/1/2018'),
+                is_still_here: false,
+                end_date: new Date('12/11/2023'),
                 description: `A dynamic team whose main purpose is to collaborate on building solutions to clients' problems. The team brainstorms on the roadmap to be taken to solve the problem, everyone gets to explore and learn in the process.`,
                 projects: [
                     {
@@ -76,9 +114,44 @@ export const load: LayoutLoad = ({url})=>{
         languages:['English', 'Hausa', 'Yoruba', 'Patois'],
         projects:[
             {
-                title: '2go',
-                brief: 'websockets powered realtime chat app',
-                technologies: ['Python', 'Django', 'Websockets']
+                title: 'ADOLV',
+                brief: 'African Diaspora of Las Vagas portal website',
+                technologies: ['Sveltekit', 'Tailwindcss', "ShadUI"],
+            },
+            {
+                title: 'Cendam',
+                brief: 'Logistics and business management Startup',
+                technologies: ['Sveltekit', "GSAP", 'Tailwindcss', "ShadUI"],
+            },
+            {
+                title: 'Tell',
+                brief: 'Anonymous messages application. I built this to test my hands on a lot of FE and BE tech.',
+                technologies: ['Sveltekit', "VueJS", "React", "AstroJS", "...", "Django", "Firebase", "Strapi", 'Tailwindcss', "ShadUI"],
+            },
+            {
+                title: 'Shikkan AI',
+                brief: 'Prize Winning AI Powered MRI scan analyzer. This was built as a solution for a Hackaton and it came in at second place',
+                technologies: ['NextJS', 'Bootsrap CSS', "Autogon AI"],
+            },
+            {
+                title: 'Paul Bowles',
+                brief: 'A biographic-style website for American expatriate composer, author and translator, Paul Bowles.',
+                technologies: ['VueJS', 'Tailwindcss', "GSAP"],
+            },
+            {
+                title: 'Alexy Polska Tech',
+                brief: 'E-commerce store for tech gadgets',
+                technologies: ['VueJS', 'Tailwindcss'],
+            },
+            {
+                title: 'GetLinked AI',
+                brief: 'AI powered Talent hunting solutions.',
+                technologies: ['NextJS', 'Tailwindcss', 'ShadUI', "ChatGPT"],
+            },
+            {
+                title: 'Tawq Tools',
+                brief: 'AI powered content managements solution.',
+                technologies: ['Sveltekit', 'Tailwindcss', 'Parralax.js'],
             },
             {
                 title: 'Exquise montres',
@@ -86,28 +159,33 @@ export const load: LayoutLoad = ({url})=>{
                 technologies: ['ThreeJs', 'Nuxt js']
             },
             {
-                title: 'FaasShoes',
-                brief: 'Animated shoes store',
-                technologies: ['Gsap', 'Vue js']
-            },
-            {
                 title: 'Watchkings',
-                brief: 'Luxury watch store',
+                brief: 'Luxury watch e-store',
                 technologies: ['Wordpress', 'woocommerce']
             },
             {
                 title: 'IGG',
-                brief: 'indomitable good grades informational website',
+                brief: 'Indomitable good grades informational website',
                 technologies: ['Pug js', 'TailwindCSS', 'AOS', 'Gulp']
             },
             {
+                title: '2go',
+                brief: 'Websockets powered realtime chat app. This was an exploratory project to test, learn and build websocket powered apps.',
+                technologies: ['Python', 'Django', 'Websockets']
+            },
+            {
+                title: 'FaasShoes',
+                brief: 'Animated shoes e-store',
+                technologies: ['Gsap', 'Vue js']
+            },
+            {
                 title: 'The great outdoors',
-                brief: 'design implementation of an adventure website',
+                brief: 'Design implementation of an adventure website. Just a random build of some dribbble design.',
                 technologies: ['next js', 'TailwindCSS']
             },
             {
                 title: 'Arounda',
-                brief: 'Arounda website clone',
+                brief: 'Arounda website clone built just for the fun of it.',
                 technologies: ['Sveltekit', 'TailwindCSS', 'AOS']
             },
             {
@@ -291,7 +369,7 @@ export const load: LayoutLoad = ({url})=>{
         skill_sets: [
             {
                 title: 'Languages',
-                skills: ['Javascript', 'Python', 'Solidity', 'Mathlab']
+                skills: ['Javascript', 'Python', 'Rust', 'Solidity', 'Mathlab']
             },
             {
                 title: 'Frontend',
@@ -306,14 +384,14 @@ export const load: LayoutLoad = ({url})=>{
                     'Nuxt js',
                     'Sveltekit',
                     'Next js',
+                    'Astro js',
                     'Pug/Jade',
                     'SASS/SCSS',
-                    'Axios',
                     'TailwindCSS',
                     'Bootstrap CSS',
                     'GSAP',
                     'AOS',
-                    'Rellax',
+                    'RellaxJs',
                     'ThreeJs'
                 ]
             },
@@ -327,7 +405,7 @@ export const load: LayoutLoad = ({url})=>{
             },
             {
                 title: 'Others',
-                skills: ['Git', 'Figma', 'Adobe XD']
+                skills: ['Git', "Github", 'Figma', 'Adobe XD']
             }
         ],
         values:[
