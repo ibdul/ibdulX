@@ -31,10 +31,48 @@ export const load: LayoutLoad = ({url})=>{
         ],
         jobs:[
             {
-                company: 'Team-X',
-                start_date: new Date('12/1/2018'),
+                company: 'Liberty Assured',
+                start_date: new Date('10/10/2023'),
                 is_still_here: true,
                 end_date: new Date(),
+                description: `Liberty Assured is a Licensed Financial Institution that is led by Individuals led by passion to bridge the divide in every economic spheres. We seek to bring Financial Liberty and Freedom by filling the void within the business sector ranging from Nano-Micro businesses to SME and personal finances. Customer growth and Satisfaction is our Success Story.`,
+                projects: [
+                    {
+                        title: 'GetLinked AI',
+                        description: `An AI powered appliacation that allows employers find and filter talents seamslessly. The application has many features and modules, including a Job Pipeline, Assessment and Interviews module, etc.`
+                    },
+                    {
+                        title: 'Ajo Loans',
+                        description: `This is a dashboard-style app that allows users of different classes manage loans. These user classes include borrowers, loan officers, loan agents, loan managers ...`
+                    },
+                ]
+            },
+            {
+                company: 'MacGroups Tech',
+                start_date: new Date('12/22/2023'),
+                is_still_here: true,
+                end_date: new Date(),
+                description: `A full fledged agency that handles everything needed to turn an idea into a solution`,
+                projects: [
+                    {
+                        title: 'Paul Bowles',
+                        description: `A biographic-style website for American expatriate composer, author and translator, Paul Bowles.`
+                    },
+                    {
+                        title: 'ADOLV',
+                        description: `African Diaspora of Las Vagas portal website that allows members list businesses and engage with the community.`
+                    },
+                    {
+                        title: 'Alexy Polska Tech',
+                        description: `A gadget e-commerce website that allows users buy and earn from commissions.`
+                    },
+                ]
+            },
+            {
+                company: 'Team-X',
+                start_date: new Date('12/1/2018'),
+                is_still_here: false,
+                end_date: new Date('12/11/2023'),
                 description: `A dynamic team whose main purpose is to collaborate on building solutions to clients' problems. The team brainstorms on the roadmap to be taken to solve the problem, everyone gets to explore and learn in the process.`,
                 projects: [
                     {
