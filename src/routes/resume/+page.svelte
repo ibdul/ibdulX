@@ -9,6 +9,23 @@
 
 	const resume_gsap_contexts: gsap.Context[] = [];
 
+	export function downloadBlob(url: string, filename: string) {
+		/* const url = window.URL.createObjectURL(blob); */
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = filename;
+		a.style.display = 'none';
+		a.target = '_blank';
+		document.body.appendChild(a);
+		a.click();
+		window.URL.revokeObjectURL(url);
+		document.body.removeChild(a);
+	}
+
+	function downloadResume() {
+		downloadBlob('/Ibrahim Abdulhameed Resume.pdf', 'Ibrahim Abdulhameed Resume');
+	}
+
 	onMount(() => {
 		const resume_gsap_context = gsap.context(() => {
 			var tl = gsap.timeline({
@@ -234,9 +251,9 @@
 			<h2 class="text-xl text-primary font-semibold">Thank you for your time.</h2>
 			<p class="text-sm ">Looking forward to talking to you.</p>
 			<div class="print:max-h-0 print:invisible">
-				<button class="text-sm border-b link" on:click={() => window.print()}
-					>print my resume</button
-				>
+				<button class="text-sm border-b link" on:click={() => downloadResume()}>
+					Download resume
+				</button>
 			</div>
 		</div>
 	</div>
