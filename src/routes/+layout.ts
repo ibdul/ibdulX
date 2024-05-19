@@ -18,7 +18,7 @@ export const load: LayoutLoad = ({url})=>{
             { title: 'Twitter', values: ['iAmIbdul'], link_prefix: 'https://twitter.com/' },
             { title: 'GitHub', values: ['ibdul'], link_prefix: 'https://github.com/' }
         ],
-        hobbies:['Learning', 'Arts', 'Movies', 'Travelling', 'Boxing', 'skating'],
+        hobbies:['Learning', 'Arts', 'Movies', 'Travelling', 'Boxing', 'Skating'],
         interests: [
             '3D web',
             'Web3 and DAPS',
